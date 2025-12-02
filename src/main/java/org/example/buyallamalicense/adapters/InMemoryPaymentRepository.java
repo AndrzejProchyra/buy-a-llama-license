@@ -4,9 +4,28 @@ import org.example.buyallamalicense.app.model.Payment;
 import org.example.buyallamalicense.app.model.PaymentId;
 import org.example.buyallamalicense.app.ports.PaymentRepository;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.concurrent.atomic.AtomicLong;
+
 public class InMemoryPaymentRepository implements PaymentRepository {
+
+    private final Map<PaymentId, Payment> payments = new HashMap<>();
+    private final AtomicLong idSequence = new AtomicLong();
+
     @Override
     public PaymentId save(Payment payment) {
-        throw new UnsupportedOperationException("Not supported yet.");
+        var paymentId = payment.id();
+        if (paymentId == null) {
+            paymentId = new PaymentId(idSequence.incrementAndGet());
+            payment = payment.withId(paymentId);
+        }
+        payments.put(paymentId, payment);
+        return paymentId;
+    }
+
+    @Override
+    public Payment findById(PaymentId id) {
+        return payments.get(id);
     }
 }
