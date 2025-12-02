@@ -46,4 +46,15 @@ class InMemoryPaymentRepositoryTest {
                 .isNotEqualTo(savedPayment2.id())
                 .isNotEqualTo(savedPayment3.id());
     }
+
+    @Test
+    void should_persist_payment_id_between_saves() {
+        var paymentId = new PaymentId(42);
+        var payment = new Payment(paymentId, new ExternalPaymentId());
+
+        paymentRepository.save(payment);
+        var savedPayment = paymentRepository.findById(paymentId);
+
+        then(savedPayment.id()).isEqualTo(paymentId);
+    }
 }
