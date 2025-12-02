@@ -3,7 +3,7 @@ package org.example.buyallamalicense.acceptance;
 import org.example.buyallamalicense.adapters.InMemoryPaymentRepository;
 import org.example.buyallamalicense.app.PaymentUseCase;
 import org.example.buyallamalicense.app.ports.PaymentRepository;
-import org.example.buyallamalicense.fakes.FakePaymentAdapter;
+import org.example.buyallamalicense.adapters.FakePaymentAdapter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

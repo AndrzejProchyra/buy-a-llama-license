@@ -1,4 +1,4 @@
-package org.example.buyallamalicense.fakes;
+package org.example.buyallamalicense.adapters;
 
 import org.example.buyallamalicense.app.model.ExternalPaymentId;
 import org.example.buyallamalicense.app.model.PaymentStatus;
