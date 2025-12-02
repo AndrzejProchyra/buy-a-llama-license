@@ -6,6 +6,7 @@ import org.example.buyallamalicense.app.ports.PaymentRepository;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import java.util.concurrent.atomic.AtomicLong;
 
 public class InMemoryPaymentRepository implements PaymentRepository {
@@ -25,7 +26,7 @@ public class InMemoryPaymentRepository implements PaymentRepository {
     }
 
     @Override
-    public Payment findById(PaymentId id) {
-        return payments.get(id);
+    public Optional<Payment> findById(PaymentId paymentId) {
+        return Optional.ofNullable(payments.get(paymentId));
     }
 }

@@ -26,7 +26,7 @@ class InMemoryPaymentRepositoryTest {
         var id = paymentRepository.save(payment);
 
         then(paymentRepository.findById(id))
-                .isEqualTo(payment);
+                .contains(payment);
     }
 
     @Test
@@ -42,9 +42,14 @@ class InMemoryPaymentRepositoryTest {
         var savedPayment2 = paymentRepository.findById(id2);
         var savedPayment3 = paymentRepository.findById(id3);
 
-        then(savedPayment1.id()).isNotNull()
-                .isNotEqualTo(savedPayment2.id())
-                .isNotEqualTo(savedPayment3.id());
+        then(savedPayment1).isPresent();
+        then(savedPayment2).isPresent();
+        then(savedPayment3).isPresent();
+        then(savedPayment1).get()
+                .extracting(Payment::id)
+                .isNotNull()
+                .isNotEqualTo(savedPayment2.get().id())
+                .isNotEqualTo(savedPayment3.get().id());
     }
 
     @Test
@@ -55,6 +60,8 @@ class InMemoryPaymentRepositoryTest {
         paymentRepository.save(payment);
         var savedPayment = paymentRepository.findById(paymentId);
 
-        then(savedPayment.id()).isEqualTo(paymentId);
+        then(savedPayment).isPresent()
+                .get().extracting(Payment::id)
+                .isEqualTo(paymentId);
     }
 }
