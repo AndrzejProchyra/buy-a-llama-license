@@ -1,16 +1,27 @@
 package org.example.buyallamalicense.fakes;
 
 import org.example.buyallamalicense.app.model.ExternalPaymentId;
+import org.example.buyallamalicense.app.model.PaymentStatus;
 import org.example.buyallamalicense.app.ports.PaymentCreationResponse;
 import org.example.buyallamalicense.app.ports.PaymentPort;
 
-public class FakePaymentAdapter implements PaymentPort {
-    public void beSuccessful() {
+import static org.example.buyallamalicense.app.model.PaymentStatus.FAILURE;
+import static org.example.buyallamalicense.app.model.PaymentStatus.SUCCESS;
 
+public class FakePaymentAdapter implements PaymentPort {
+    private boolean isSuccessful;
+
+    public void beSuccessful() {
+        isSuccessful = true;
     }
 
     @Override
     public PaymentCreationResponse createPayment(String reference, int amount, String description) {
-        return new PaymentCreationResponse(new ExternalPaymentId());
+        return new PaymentCreationResponse(new ExternalPaymentId("external-id"));
+    }
+
+    @Override
+    public PaymentStatus getStatusFor(ExternalPaymentId id) {
+        return isSuccessful ? SUCCESS : FAILURE;
     }
 }

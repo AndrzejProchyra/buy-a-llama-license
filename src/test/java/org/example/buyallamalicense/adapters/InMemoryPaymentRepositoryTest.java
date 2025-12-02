@@ -11,6 +11,7 @@ import static org.assertj.core.api.BDDAssertions.then;
 
 class InMemoryPaymentRepositoryTest {
 
+    public static final ExternalPaymentId EXTERNAL_PAYMENT_ID = new ExternalPaymentId("external-id");
     private PaymentRepository paymentRepository;
 
     @BeforeEach
@@ -21,7 +22,7 @@ class InMemoryPaymentRepositoryTest {
     @Test
     void should_save_and_find_a_payment() {
         var paymentId = new PaymentId(42);
-        var payment = new Payment(paymentId, new ExternalPaymentId());
+        var payment = new Payment(paymentId, EXTERNAL_PAYMENT_ID);
 
         var id = paymentRepository.save(payment);
 
@@ -31,9 +32,9 @@ class InMemoryPaymentRepositoryTest {
 
     @Test
     void should_assign_a_unique_id_to_new_payments() {
-        var payment1 = new Payment(new ExternalPaymentId());
-        var payment2 = new Payment(new ExternalPaymentId());
-        var payment3 = new Payment(new ExternalPaymentId());
+        var payment1 = new Payment(EXTERNAL_PAYMENT_ID);
+        var payment2 = new Payment(EXTERNAL_PAYMENT_ID);
+        var payment3 = new Payment(EXTERNAL_PAYMENT_ID);
 
         var id1 = paymentRepository.save(payment1);
         var id2 = paymentRepository.save(payment2);
@@ -55,7 +56,7 @@ class InMemoryPaymentRepositoryTest {
     @Test
     void should_persist_payment_id_between_saves() {
         var paymentId = new PaymentId(42);
-        var payment = new Payment(paymentId, new ExternalPaymentId());
+        var payment = new Payment(paymentId, EXTERNAL_PAYMENT_ID);
 
         paymentRepository.save(payment);
         var savedPayment = paymentRepository.findById(paymentId);

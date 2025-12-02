@@ -11,9 +11,9 @@ public class PaymentUseCase {
     private final PaymentPort paymentPort;
     private final PaymentRepository paymentRepository;
 
-    public PaymentUseCase(PaymentPort paymentAdapter, PaymentRepository inMemoryPaymentRepository) {
+    public PaymentUseCase(PaymentPort paymentAdapter, PaymentRepository paymentRepository) {
         paymentPort = paymentAdapter;
-        paymentRepository = inMemoryPaymentRepository;
+        this.paymentRepository = paymentRepository;
     }
 
     public PaymentRequestResponse requestPayment(String reference, int amount) {
@@ -24,6 +24,8 @@ public class PaymentUseCase {
     }
 
     public PaymentStatus getPaymentStatus(PaymentId paymentId) {
-        throw new UnsupportedOperationException();
+        var payment = paymentRepository.findById(paymentId).get();
+        var externalPaymentId = payment.externalPaymentId();
+        return paymentPort.getStatusFor(externalPaymentId);
     }
 }
