@@ -20,7 +20,7 @@ public class PaymentUseCase {
         var response = paymentPort.createPayment(reference, amount, "A Llama License");
         var payment = new Payment(response.paymentId());
         var paymentId = paymentRepository.save(payment);
-        return new PaymentRequestResponse(paymentId);
+        return new PaymentRequestResponse(paymentId, response.nextUrl());
     }
 
     public PaymentStatus getPaymentStatus(PaymentId paymentId) {

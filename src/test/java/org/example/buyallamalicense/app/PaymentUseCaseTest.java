@@ -62,4 +62,16 @@ class PaymentUseCaseTest {
 
         then(paymentRequestResponse.paymentId()).isEqualTo(paymentId);
     }
+
+    @Test
+    void should_return_payment_url_from_the_payment_port() {
+        var expectedPaymentUrl = URI.create("http://example.org");
+        given(paymentPortStub.createPayment(any(), anyInt(), any()))
+                .willReturn(new PaymentCreationResponse(ANY_PAYMENT_ID, expectedPaymentUrl));
+
+        var response = paymentUseCase.requestPayment("some-reference", 123);
+
+        then(response.paymentUrl())
+                .isEqualTo(expectedPaymentUrl);
+    }
 }
