@@ -2,8 +2,8 @@ package org.example.buyallamalicense.adapters.out.payment;
 
 import org.example.buyallamalicense.app.model.ExternalPaymentId;
 import org.example.buyallamalicense.app.model.PaymentStatus;
-import org.example.buyallamalicense.app.ports.PaymentCreationResponse;
-import org.example.buyallamalicense.app.ports.PaymentPort;
+import org.example.buyallamalicense.app.ports.payment.PaymentCreationResponse;
+import org.example.buyallamalicense.app.ports.payment.PaymentPort;
 
 import java.net.URI;
 

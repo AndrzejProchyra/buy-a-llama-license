@@ -1,4 +1,4 @@
-package org.example.buyallamalicense.app.ports;
+package org.example.buyallamalicense.app.ports.repository;
 
 import org.example.buyallamalicense.app.model.Payment;
 import org.example.buyallamalicense.app.model.PaymentId;

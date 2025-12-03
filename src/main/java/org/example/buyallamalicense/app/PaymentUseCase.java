@@ -3,9 +3,9 @@ package org.example.buyallamalicense.app;
 import org.example.buyallamalicense.app.model.Payment;
 import org.example.buyallamalicense.app.model.PaymentId;
 import org.example.buyallamalicense.app.model.PaymentStatus;
-import org.example.buyallamalicense.app.ports.PaymentPort;
-import org.example.buyallamalicense.app.ports.PaymentRepository;
-import org.example.buyallamalicense.app.ports.PaymentRequestResponse;
+import org.example.buyallamalicense.app.ports.payment.PaymentPort;
+import org.example.buyallamalicense.app.ports.repository.PaymentRepository;
+import org.example.buyallamalicense.app.ports.payment.PaymentRequestResponse;
 
 public class PaymentUseCase {
     private final PaymentPort paymentPort;

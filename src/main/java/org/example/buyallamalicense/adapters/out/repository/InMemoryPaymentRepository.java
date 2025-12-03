@@ -2,7 +2,7 @@ package org.example.buyallamalicense.adapters.out.repository;
 
 import org.example.buyallamalicense.app.model.Payment;
 import org.example.buyallamalicense.app.model.PaymentId;
-import org.example.buyallamalicense.app.ports.PaymentRepository;
+import org.example.buyallamalicense.app.ports.repository.PaymentRepository;
 
 import java.util.HashMap;
 import java.util.Map;

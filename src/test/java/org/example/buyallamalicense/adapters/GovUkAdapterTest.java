@@ -2,8 +2,8 @@ package org.example.buyallamalicense.adapters;
 
 import org.example.buyallamalicense.adapters.out.payment.GovUkAdapter;
 import org.example.buyallamalicense.app.model.ExternalPaymentId;
-import org.example.buyallamalicense.app.ports.PaymentCreationResponse;
-import org.example.buyallamalicense.app.ports.PaymentPort;
+import org.example.buyallamalicense.app.ports.payment.PaymentCreationResponse;
+import org.example.buyallamalicense.app.ports.payment.PaymentPort;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;

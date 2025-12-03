@@ -4,7 +4,7 @@ import org.example.buyallamalicense.adapters.out.repository.InMemoryPaymentRepos
 import org.example.buyallamalicense.app.model.ExternalPaymentId;
 import org.example.buyallamalicense.app.model.Payment;
 import org.example.buyallamalicense.app.model.PaymentId;
-import org.example.buyallamalicense.app.ports.PaymentRepository;
+import org.example.buyallamalicense.app.ports.repository.PaymentRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
