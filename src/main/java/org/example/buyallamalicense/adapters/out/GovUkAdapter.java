@@ -25,14 +25,14 @@ public class GovUkAdapter implements PaymentPort {
     @Override
     public PaymentCreationResponse createPayment(String reference, int amount, String description) {
         var requestPayload = new CreateCardPaymentRequest(amount, description, reference, "http://foo");
-        CreatePaymentResult createPaymentResult = restClient.post()
+        var createPaymentResult = restClient.post()
                 .uri(URI.create("/v1/payments"))
                 .contentType(APPLICATION_JSON)
                 .body(requestPayload)
                 .retrieve()
                 .body(CreatePaymentResult.class);
-        ExternalPaymentId externalPaymentId = new ExternalPaymentId(createPaymentResult.paymentId());
-        URI nextUrl = URI.create(createPaymentResult.links().nextUrl().href());
+        var externalPaymentId = new ExternalPaymentId(createPaymentResult.paymentId());
+        var nextUrl = URI.create(createPaymentResult.links().nextUrl().href());
         return new PaymentCreationResponse(externalPaymentId, nextUrl);
     }
 
