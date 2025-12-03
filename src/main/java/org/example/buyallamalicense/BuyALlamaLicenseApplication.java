@@ -5,6 +5,7 @@ import org.example.buyallamalicense.adapters.out.GovUkAdapter;
 import org.example.buyallamalicense.adapters.out.InMemoryPaymentRepository;
 import org.example.buyallamalicense.app.PaymentUseCase;
 import org.example.buyallamalicense.app.ports.PaymentPort;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
@@ -21,8 +22,8 @@ public class BuyALlamaLicenseApplication {
 
     @Bean
     @Profile("production")
-    public PaymentPort paymentPort() {
-        return new GovUkAdapter(URI.create("http://localhost:8080"), "");
+    public PaymentPort paymentPort(@Value("${gov-pay.base-url}") String baseUrl, @Value("${gov-pay.api-key}") String apiKey) {
+        return new GovUkAdapter(URI.create(baseUrl), apiKey);
     }
 
     @Bean
