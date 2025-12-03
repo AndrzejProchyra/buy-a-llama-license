@@ -24,7 +24,7 @@ public class GovUkAdapter implements PaymentPort {
 
     @Override
     public PaymentCreationResponse createPayment(String reference, int amount, String description) {
-        var requestPayload = new CreateCardPaymentRequest(amount, description, reference, "http://foo");
+        var requestPayload = new CreateCardPaymentRequest(amount, description, reference, "http://localhost:8080/status");
         var createPaymentResult = restClient.post()
                 .uri(URI.create("/v1/payments"))
                 .contentType(APPLICATION_JSON)

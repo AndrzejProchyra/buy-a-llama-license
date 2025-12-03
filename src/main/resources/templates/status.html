@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Buy a Llama License</title>
+</head>
+<body>
+<h1>Buy a Llama License</h1>
+<div th:if="${status == T(org.example.buyallamalicense.app.model.PaymentStatus).SUCCESS}">
+    <h2 class="success">Payment succeeded!</h2>
+</div>
+
+<div th:if="${status == T(org.example.buyallamalicense.app.model.PaymentStatus).FAILURE}">
+    <h2 class="failure">Payment failed.</h2>
+</div>
+
+</body>
+</html>
