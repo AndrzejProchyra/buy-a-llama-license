@@ -3,20 +3,26 @@ package org.example.buyallamalicense.app;
 import org.example.buyallamalicense.app.model.ExternalPaymentId;
 import org.example.buyallamalicense.app.model.Payment;
 import org.example.buyallamalicense.app.model.PaymentId;
+import org.example.buyallamalicense.app.ports.PaymentCreationResponse;
 import org.example.buyallamalicense.app.ports.PaymentPort;
 import org.example.buyallamalicense.app.ports.PaymentRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.net.URI;
 import java.util.Optional;
 
 import static org.assertj.core.api.BDDAssertions.then;
 import static org.example.buyallamalicense.app.model.PaymentStatus.SUCCESS;
+import static org.mockito.ArgumentMatchers.any;
+import static org.mockito.ArgumentMatchers.anyInt;
 import static org.mockito.BDDMockito.given;
 import static org.mockito.Mockito.mock;
 
 class PaymentUseCaseTest {
 
+    public static final URI ANY_URL = URI.create("http://example.org");
+    public static final ExternalPaymentId ANY_PAYMENT_ID = new ExternalPaymentId("external-id");
     private PaymentUseCase paymentUseCase;
     private PaymentPort paymentPortStub;
     private PaymentRepository paymentRepositoryStub;
@@ -42,5 +48,18 @@ class PaymentUseCaseTest {
 
         then(status)
                 .isEqualTo(SUCCESS);
+    }
+
+    @Test
+    void should_return_payment_id_assigned_by_the_repository() {
+        var paymentId = new PaymentId(42);
+        given(paymentPortStub.createPayment(any(), anyInt(), any()))
+                .willReturn(new PaymentCreationResponse(ANY_PAYMENT_ID, ANY_URL));
+        given(paymentRepositoryStub.save(any()))
+                .willReturn(paymentId);
+
+        var paymentRequestResponse = paymentUseCase.requestPayment("some-reference", 123);
+
+        then(paymentRequestResponse.paymentId()).isEqualTo(paymentId);
     }
 }
