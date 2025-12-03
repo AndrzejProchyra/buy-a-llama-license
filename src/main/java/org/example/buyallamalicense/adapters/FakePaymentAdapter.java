@@ -5,6 +5,8 @@ import org.example.buyallamalicense.app.model.PaymentStatus;
 import org.example.buyallamalicense.app.ports.PaymentCreationResponse;
 import org.example.buyallamalicense.app.ports.PaymentPort;
 
+import java.net.URI;
+
 import static org.example.buyallamalicense.app.model.PaymentStatus.FAILURE;
 import static org.example.buyallamalicense.app.model.PaymentStatus.SUCCESS;
 
@@ -17,7 +19,7 @@ public class FakePaymentAdapter implements PaymentPort {
 
     @Override
     public PaymentCreationResponse createPayment(String reference, int amount, String description) {
-        return new PaymentCreationResponse(new ExternalPaymentId("external-id"));
+        return new PaymentCreationResponse(new ExternalPaymentId("external-id"), URI.create("http://example.com"));
     }
 
     @Override
