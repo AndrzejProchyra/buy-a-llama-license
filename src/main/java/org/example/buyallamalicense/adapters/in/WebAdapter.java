@@ -1,4 +1,4 @@
-package org.example.buyallamalicense.adapters;
+package org.example.buyallamalicense.adapters.in;
 
 import org.example.buyallamalicense.app.PaymentUseCase;
 import org.springframework.stereotype.Controller;

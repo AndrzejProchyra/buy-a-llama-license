@@ -1,8 +1,6 @@
-package org.example.buyallamalicense.adapters;
+package org.example.buyallamalicense.adapters.out;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-
-import java.net.URI;
 
 public record Links(@JsonProperty("next_url") Link nextUrl) {
 }

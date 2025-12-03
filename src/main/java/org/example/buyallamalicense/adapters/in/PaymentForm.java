@@ -1,4 +1,4 @@
-package org.example.buyallamalicense.adapters;
+package org.example.buyallamalicense.adapters.in;
 
 public class PaymentForm {
     private String reference;

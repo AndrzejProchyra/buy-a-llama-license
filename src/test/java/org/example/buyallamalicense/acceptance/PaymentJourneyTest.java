@@ -1,9 +1,9 @@
 package org.example.buyallamalicense.acceptance;
 
-import org.example.buyallamalicense.adapters.InMemoryPaymentRepository;
+import org.example.buyallamalicense.adapters.out.InMemoryPaymentRepository;
 import org.example.buyallamalicense.app.PaymentUseCase;
 import org.example.buyallamalicense.app.ports.PaymentRepository;
-import org.example.buyallamalicense.adapters.FakePaymentAdapter;
+import org.example.buyallamalicense.adapters.out.FakePaymentAdapter;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 

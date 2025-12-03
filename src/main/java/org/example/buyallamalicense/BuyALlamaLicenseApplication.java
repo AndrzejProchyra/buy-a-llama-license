@@ -1,7 +1,7 @@
 package org.example.buyallamalicense;
 
-import org.example.buyallamalicense.adapters.FakePaymentAdapter;
-import org.example.buyallamalicense.adapters.InMemoryPaymentRepository;
+import org.example.buyallamalicense.adapters.out.FakePaymentAdapter;
+import org.example.buyallamalicense.adapters.out.InMemoryPaymentRepository;
 import org.example.buyallamalicense.app.PaymentUseCase;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
