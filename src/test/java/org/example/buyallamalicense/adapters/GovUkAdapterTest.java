@@ -15,6 +15,7 @@ import org.mockserver.mock.OpenAPIExpectation;
 import java.net.URI;
 
 import static org.assertj.core.api.BDDAssertions.then;
+import static org.example.buyallamalicense.app.model.PaymentStatus.SUCCESS;
 
 @ExtendWith(MockServerExtension.class)
 @MockServerSettings(ports = {8081})
@@ -38,5 +39,13 @@ class GovUkAdapterTest {
         var response = adapter.createPayment("foo", 123, "a llama");
 
         then(response).isEqualTo(expectedResponse);
+    }
+
+    @Test
+    void should_get_payment_status_from_external_service() {
+        var response = adapter.getStatusFor(new ExternalPaymentId("some-id"));
+
+        then(response)
+                .isEqualTo(SUCCESS);
     }
 }

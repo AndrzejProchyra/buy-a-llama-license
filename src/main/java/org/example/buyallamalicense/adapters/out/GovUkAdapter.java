@@ -38,6 +38,14 @@ public class GovUkAdapter implements PaymentPort {
 
     @Override
     public PaymentStatus getStatusFor(ExternalPaymentId id) {
-        return null;
+        PaymentWithAllLinks response = restClient.get()
+                .uri(URI.create("/v1/payments/" + id.id()))
+                .retrieve()
+                .body(PaymentWithAllLinks.class);
+
+        if (response.state().status().equalsIgnoreCase("success")) {
+            return PaymentStatus.SUCCESS;
+        }
+        return PaymentStatus.FAILURE;
     }
 }
