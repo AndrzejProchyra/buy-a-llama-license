@@ -26,6 +26,6 @@ public class WebAdapter {
     public String pay(@ModelAttribute PaymentForm paymentForm) {
         var reference = paymentForm.getReference();
         var paymentRequestResponse = paymentUseCase.requestPayment(reference, 4000);
-        return "redirect:https://bbc.co.uk";
+        return "redirect:" + paymentRequestResponse.paymentUrl();
     }
 }
