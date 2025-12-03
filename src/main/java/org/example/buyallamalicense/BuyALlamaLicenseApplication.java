@@ -22,13 +22,13 @@ public class BuyALlamaLicenseApplication {
 
     @Bean
     @Profile("production")
-    public PaymentPort paymentPort(@Value("${gov-pay.base-url}") String baseUrl, @Value("${gov-pay.api-key}") String apiKey) {
+    public PaymentPort paymentAdapter(@Value("${gov-pay.base-url}") String baseUrl, @Value("${gov-pay.api-key}") String apiKey) {
         return new GovUkAdapter(URI.create(baseUrl), apiKey);
     }
 
     @Bean
     @Profile("test")
-    public PaymentPort testPaymentPort() {
+    public PaymentPort testPaymentAdapter() {
         return new FakePaymentAdapter();
     }
 
