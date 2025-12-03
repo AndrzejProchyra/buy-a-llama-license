@@ -33,7 +33,7 @@ public class BuyALlamaLicenseApplication {
     }
 
     @Bean
-    PaymentUseCase paymentUseCase() {
-        return new PaymentUseCase(new FakePaymentAdapter(), new InMemoryPaymentRepository());
+    PaymentUseCase paymentUseCase(PaymentPort paymentAdapter) {
+        return new PaymentUseCase(paymentAdapter, new InMemoryPaymentRepository());
     }
 }
