@@ -46,6 +46,9 @@ public class GovUkAdapter implements PaymentPort {
         if (response.state().status().equalsIgnoreCase("success")) {
             return PaymentStatus.SUCCESS;
         }
+        if (response.state().status().equalsIgnoreCase("created")) {
+            return PaymentStatus.CREATED;
+        }
         return PaymentStatus.FAILURE;
     }
 }
