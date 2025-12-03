@@ -1,6 +1,6 @@
 package org.example.buyallamalicense.adapters;
 
-import org.example.buyallamalicense.adapters.out.InMemoryPaymentRepository;
+import org.example.buyallamalicense.adapters.out.repository.InMemoryPaymentRepository;
 import org.example.buyallamalicense.app.model.ExternalPaymentId;
 import org.example.buyallamalicense.app.model.Payment;
 import org.example.buyallamalicense.app.model.PaymentId;

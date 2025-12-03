@@ -1,4 +1,4 @@
-package org.example.buyallamalicense.adapters.out;
+package org.example.buyallamalicense.adapters.out.payment;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 

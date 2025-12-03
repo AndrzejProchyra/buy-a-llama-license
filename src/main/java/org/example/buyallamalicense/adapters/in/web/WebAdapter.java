@@ -1,4 +1,4 @@
-package org.example.buyallamalicense.adapters.in;
+package org.example.buyallamalicense.adapters.in.web;
 
 import jakarta.servlet.http.HttpSession;
 import org.example.buyallamalicense.app.PaymentUseCase;

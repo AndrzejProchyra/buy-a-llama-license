@@ -1,6 +1,6 @@
 package org.example.buyallamalicense.adapters;
 
-import org.example.buyallamalicense.adapters.in.WebAdapter;
+import org.example.buyallamalicense.adapters.in.web.WebAdapter;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest;

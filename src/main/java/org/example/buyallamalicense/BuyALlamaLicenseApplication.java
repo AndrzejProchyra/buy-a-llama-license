@@ -1,8 +1,8 @@
 package org.example.buyallamalicense;
 
-import org.example.buyallamalicense.adapters.out.FakePaymentAdapter;
-import org.example.buyallamalicense.adapters.out.GovUkAdapter;
-import org.example.buyallamalicense.adapters.out.InMemoryPaymentRepository;
+import org.example.buyallamalicense.adapters.out.payment.FakePaymentAdapter;
+import org.example.buyallamalicense.adapters.out.payment.GovUkAdapter;
+import org.example.buyallamalicense.adapters.out.repository.InMemoryPaymentRepository;
 import org.example.buyallamalicense.app.PaymentUseCase;
 import org.example.buyallamalicense.app.ports.PaymentPort;
 import org.springframework.beans.factory.annotation.Value;

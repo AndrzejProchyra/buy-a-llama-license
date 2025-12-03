@@ -1,4 +1,4 @@
-package org.example.buyallamalicense.adapters.out;
+package org.example.buyallamalicense.adapters.out.payment;
 
 import org.example.buyallamalicense.app.model.ExternalPaymentId;
 import org.example.buyallamalicense.app.model.PaymentStatus;

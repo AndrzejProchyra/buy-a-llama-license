@@ -1,6 +1,6 @@
 package org.example.buyallamalicense.adapters;
 
-import org.example.buyallamalicense.adapters.out.GovUkAdapter;
+import org.example.buyallamalicense.adapters.out.payment.GovUkAdapter;
 import org.example.buyallamalicense.app.model.ExternalPaymentId;
 import org.example.buyallamalicense.app.ports.PaymentCreationResponse;
 import org.example.buyallamalicense.app.ports.PaymentPort;
